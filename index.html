@@ -1,44 +1,81 @@
-<!DOCTYPE html>
 <html>
 
 <head>
+    <title> slector</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="event.js"></script>
-<style>
-.clickevent{
-  text-align: center;
-border: 1px solid;
-width: 20%;
-}
-</style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-  <div>
-  <!-- <h3> clickevent<h3> -->
-    <div class="clickevent">
-      <h3> clickevent<h3>
-        <p>If you click on me, I will disappear.</p>
-        <p>Click me away!</p>
-        <p>Click me too!</p>
-    </div>
-    <br>
-    </br>
-    <div class="mouse">
-        <p id="p1">Enter this paragraph.</p>
-    </div>
-    <br>
-    <div class="hoverevent">
-        <p>Move mouse on any square below to see the result of hover:</p>
-          </div>
+    <ul class="tree" id="tree">
+        <h4>Manage permision</h4>
+        <!-- <hr> -->
+        <li>
+            <input type="checkbox" name="account_settings" value="yes">Property
+            <!-- AND SHOULD CHECK HERE -->
+            <ul>
+                <li>
+                    <input type="checkbox" name="one" value="one">EditProperty</li>
+                <li>
+                    <input type="checkbox" name="two" value="two">Remove Property</li>
+                <li>
+                    <input type="checkbox" name="user_roles" value="user_roles"> Add Property
+                </li>
+            </ul>
+        </li>
+        <!--  Testimonial-->
 
-    <div class="focusevents">
-        <input>
+        <li>
+            <input type="checkbox" name="rl_module" value="yes">Testimonial
+            <ul>
+                <li>
+                    <input type="checkbox" name="vat" value="yes">Add
+                </li>
 
-        <span>Nice to meet you!</span>
-        <p>Click in the input field to get focus.</p>
-    </div>
-  </div>
+                <li>
+                    <input type="checkbox" name="bank_account" value="yes">Remove
+                </li>
+                <li>
+                    <input type="checkbox" name="vat" value="yes">view
+                </li>
+                <li>
+                    <input type="checkbox" name="vat" value="yes">Edit
+                </li>
+            </ul>
+        </li>
+        <!-- User -->
+        <li>
+            <input type="checkbox" name="rl_module" value="yes">User
+            <ul>
+                <li>
+                    <input type="checkbox" name="vat" value="yes">Edit User</li>
+                <li>
+                    <input type="checkbox" name="bank_account" value="yes">View User_List
+
+                </li>
+                <li>
+                    <input type="checkbox" name="vat" value="yes"> Add_User</li>
+            </ul>
+        </li>
+        <!-- Membership-->
+        <li>
+            <input type="checkbox" name="rl_module" value="yes">Membership
+            <ul>
+                <li>
+                    <input type="checkbox" name="vat" value="yes">Edit Membership</li>
+                <li>
+                    <input type="checkbox" name="bank_account" value="yes"> Remove Membership
+
+                </li>
+                <li>
+                    <input type="checkbox" name="vat" value="yes"> Add Membership</li>
+            </ul>
+        </li>
+    </ul>
+
+
 </body>
 
 </html>
+

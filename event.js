@@ -1,31 +1,10 @@
-
-$(document).ready(function(){
-    $("p").click(function(){
-        $(this).hide();
-    });
-});
-$(document).ready(function(){
-   $('#p1').on('mouseenter mouseleave', function() {
-  $('#p1').toggle('event.mouseenter');
-
-});
-});
 $(document).ready(function() {
-
-            $('.hoverevent').hover(
-
-               function () {
-                  $(this).css({"background-color":"red"});
-               },
-
-               function () {
-                  $(this).css({"background-color":"blue"});
-               }
-            );
-
-         });
-         $(document).ready(function(){
-    $("input").focus(function(){
-        $("span").css("display", "inline").fadeOut(2000);
-    });
+$('input[type=checkbox]').click(function () {
+    $(this).parent().find('li input[type=checkbox]').prop('checked', $(this).is(':checked'));
+    var sibs = false;
+    $(this).closest('ul').children('li').each(function () {
+        if($('input[type=checkbox]', this).is(':checked')) sibs=true;
+    })
+    $(this).parents('ul').prev().prop('checked', sibs);
+});
 });
