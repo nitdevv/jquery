@@ -1,81 +1,38 @@
 <html>
-
 <head>
-    <title> slector</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="event.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="select.js"></script>
+
 
 <body>
-    <ul class="tree" id="tree">
-        <h4>Manage permision</h4>
-        <!-- <hr> -->
-        <li>
-            <input type="checkbox" name="account_settings" value="yes">Property
-            <!-- AND SHOULD CHECK HERE -->
-            <ul>
-                <li>
-                    <input type="checkbox" name="one" value="one">EditProperty</li>
-                <li>
-                    <input type="checkbox" name="two" value="two">Remove Property</li>
-                <li>
-                    <input type="checkbox" name="user_roles" value="user_roles"> Add Property
-                </li>
-            </ul>
-        </li>
-        <!--  Testimonial-->
-
-        <li>
-            <input type="checkbox" name="rl_module" value="yes">Testimonial
-            <ul>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">Add
-                </li>
-
-                <li>
-                    <input type="checkbox" name="bank_account" value="yes">Remove
-                </li>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">view
-                </li>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">Edit
-                </li>
-            </ul>
-        </li>
-        <!-- User -->
-        <li>
-            <input type="checkbox" name="rl_module" value="yes">User
-            <ul>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">Edit User</li>
-                <li>
-                    <input type="checkbox" name="bank_account" value="yes">View User_List
-
-                </li>
-                <li>
-                    <input type="checkbox" name="vat" value="yes"> Add_User</li>
-            </ul>
-        </li>
-        <!-- Membership-->
-        <li>
-            <input type="checkbox" name="rl_module" value="yes">Membership
-            <ul>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">Edit Membership</li>
-                <li>
-                    <input type="checkbox" name="bank_account" value="yes"> Remove Membership
-
-                </li>
-                <li>
-                    <input type="checkbox" name="vat" value="yes"> Add Membership</li>
-            </ul>
-        </li>
-    </ul>
-
-
+<div align="center" style="margin-left: 200px; margin-top: 100px;margin-right:300px;background-color: lightgrey;">
+<table border="1"width="800">
+    <tr>
+        <td align="left">Property Image</td>
+    </tr>
+    
+    <tr>
+        <td align="center">Property Image</td>
+        
+        <td><br><br>
+            <div id="container">
+<div id="item">
+                <input type="file" accept="image/gif, image/jpeg, image/png">
+                <select>
+                    <option value="select">Primary Image</option>
+                    <option value="select">Secondary Image</option>
+                </select>
+                <br><br>
+</div>
+            </div>
+            
+                <input type="submit" value="Add Another" id="add"><br><br>
+            
+        </td>
+    </tr> 
+</table>
+</div>
 </body>
-
+</head>
 </html>
 
