@@ -1,0 +1,17 @@
+
+ul{
+  list-style-type: none;
+}
+li{
+  list-style-type: none;
+}
+#tree{
+  border: 1px solid;
+width: 18%;
+/* margin-bottom: 11px; */
+padding-top: 24px;
+padding-bottom: 31px;
+}
+h4{
+    text-align: center;
+}
