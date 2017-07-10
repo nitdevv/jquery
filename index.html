@@ -1,81 +1,43 @@
+
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>add and remove field</title>
 
-<head>
-    <title> slector</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="event.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+       <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+      <script src="select.js"></script>
 
-<body>
-    <ul class="tree" id="tree">
-        <h4>Manage permision</h4>
-        <!-- <hr> -->
-        <li>
-            <input type="checkbox" name="account_settings" value="yes">Property
-            <!-- AND SHOULD CHECK HERE -->
-            <ul>
-                <li>
-                    <input type="checkbox" name="one" value="one">EditProperty</li>
-                <li>
-                    <input type="checkbox" name="two" value="two">Remove Property</li>
-                <li>
-                    <input type="checkbox" name="user_roles" value="user_roles"> Add Property
-                </li>
-            </ul>
-        </li>
-        <!--  Testimonial-->
+        <style type="text/css">
+            div {
+                padding: 8px;
+                width: 490px;
+            }
+            .x{
+                background-color: black;
+                color: white;
+            }
+            fieldset {
+                width: 20px;
+            }
+        </style>
+    </head>
+    <body>
 
-        <li>
-            <input type="checkbox" name="rl_module" value="yes">Testimonial
-            <ul>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">Add
-                </li>
+        <fieldset>
 
-                <li>
-                    <input type="checkbox" name="bank_account" value="yes">Remove
-                </li>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">view
-                </li>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">Edit
-                </li>
-            </ul>
-        </li>
-        <!-- User -->
-        <li>
-            <input type="checkbox" name="rl_module" value="yes">User
-            <ul>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">Edit User</li>
-                <li>
-                    <input type="checkbox" name="bank_account" value="yes">View User_List
+            <div class="x">
+                property image:-
+            </div>
+            <div class="input">
+                <div clas="y"><label>property image:</label><input type="file" name="mytext[]" >
+                    <input type="button" value="remove" class="remove_field">
+                </div>
+            </div>
+            <input type='button' value='add another' class="add_field_button">
+        </fieldset>      
 
-                </li>
-                <li>
-                    <input type="checkbox" name="vat" value="yes"> Add_User</li>
-            </ul>
-        </li>
-        <!-- Membership-->
-        <li>
-            <input type="checkbox" name="rl_module" value="yes">Membership
-            <ul>
-                <li>
-                    <input type="checkbox" name="vat" value="yes">Edit Membership</li>
-                <li>
-                    <input type="checkbox" name="bank_account" value="yes"> Remove Membership
-
-                </li>
-                <li>
-                    <input type="checkbox" name="vat" value="yes"> Add Membership</li>
-            </ul>
-        </li>
-    </ul>
-
-
-</body>
-
+    </body>
 </html>
 
