@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    $('.MYCLASS').jqzoom();
+    $('.jqZoom').jqzoom();
     var options = {
         zoomType: 'innerzoom',
         lens: true,
@@ -14,5 +14,5 @@ $(document).ready(function() {
                 //...MORE OPTIONS
     };
 
-    $('.MYCLASS').jqzoom(options);
+    $('.jqZoom').jqzoom(options);
 });
