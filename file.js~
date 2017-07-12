@@ -3,7 +3,6 @@ $(document).ready(function() {
         e.preventDefault();
         var name = $('#name').val();
         var email = $('#email').val();
-        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
         var message = $('#msg').val();
         var date = $('#date').val();
         console.log('data');
@@ -24,34 +23,20 @@ $(document).ready(function() {
                     $("#email").val("");
                     $("#message").val("");
                     $("#date").val("");
-                } else if (!name) {
-
-                    alert("please enter name")
-                } else if (!email) {
-
-                    alert("please enter email")
-                } else if (!pattern.test(email)) {
-                    alert("please enter valid email address");
-
-                } else if (!message) {
-
-                    alert("please enter message")
-                } else if (!date) {
-
-                    alert("please select date")
+                } else {
+                    alert("please fill all the fields")
                 }
             }
         });
     });
     return false;
 });
-$(document).ready(function() {
-    setInterval(function() {
+$(document).ready(function(){
+    setInterval(function(){
         fetchData();
-    }, 1000); // this will call your fetchData function for every 10 Sec.
+    },1000);  // this will call your fetchData function for every 10 Sec.
 });
-
-function fetchData() {
+  function fetchData(){
     $.ajax({
         type: 'POST',
         url: 'fetch.php',
@@ -59,7 +44,7 @@ function fetchData() {
         success: function(data) {
             console.log('json');
             if (data) {
-                $("td").remove();
+              $("td").remove();
                 var len = data.length;
                 var txt = "";
                 if (len > 0) {
@@ -79,5 +64,4 @@ function fetchData() {
         }
     });
     return false; //suppress natural form submission
-}
-
+  }
