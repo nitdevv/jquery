@@ -7,14 +7,17 @@
     <script src="file.js"></script>
 </head>
 <body>
-    <table id="table" class="hidden">
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Message</th>
-            <th>Date</th>
-        </tr>
-    </table>
+  <table id="table">
+     <thead>
+     <tr>
+         <th>Name</th>
+         <th>Email</th>
+         <th>Message</th>
+         <th>Date</th>
+     </tr>
+      </thead>
+      <tbody class="tbody"></tbody>
+ </table>
     <div class="container">
         <div class="main">
             <form id="form" action='' method='post'>
