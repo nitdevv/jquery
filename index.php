@@ -7,17 +7,24 @@
     <script src="file.js"></script>
 </head>
 <body>
-  <table id="table">
-     <thead>
+  <div>
+  <table id="table" class="sortable">
+     <thead id="heading">
      <tr>
-         <th>Name</th>
+         <th id="Name_1">Name</th>
          <th>Email</th>
          <th>Message</th>
          <th>Date</th>
      </tr>
       </thead>
-      <tbody class="tbody"></tbody>
+      <tbody class="tbody" id="results">
+
+      </tbody>
  </table>
+ <div id ="yoo">
+ <div id='page_navigation'></div>
+<span id="nextValue">next</span></div>
+ </div>
     <div class="container">
         <div class="main">
             <form id="form" action='' method='post'>
