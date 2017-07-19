@@ -1,17 +1,34 @@
+var pageStart = 0;
+var limit = 3;
+var count = 0;
+var newcount = 0;
+var pageLimit = 3;
+var offset = 0;
 $(document).ready(function() {
+    var sort = "name";
+    var sortType = "ASC";
+    $(".sort").click(function(e) {
+        if (sort == e.target.id)
+            (sortType == "ASC") ? sortType = "DESC" : sortType = "ASC";
+        else
+            sortType = "ASC";
+        sort = e.target.id;
+
+        fetchData(pageStart);
+    })
     $("#sub").click(function(e) {
         e.preventDefault();
-        var name = $('#name').val();
-        var email = $('#email').val();
+        var name = $('#nameuser').val();
+        var email = $('#emailuser').val();
         var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
-        var message = $('#msg').val();
-        var date = $('#date').val();
+        var message = $('#msguser').val();
+        var date = $('#dateuser').val();
         if (name != '' && email != '' && message != '' && date != '') {
             alert("submit");
-            $("#name").val("");
-            $("#email").val("");
-            $("#msg").val("");
-            $("#date").val("");
+            $("#nameuser").val("");
+            $("#emailuser").val("");
+            $("#msguser").val("");
+            $("#dateuser").val("");
         } else if (!name) {
             alert("please enter name")
         } else if (!email) {
@@ -40,32 +57,44 @@ $(document).ready(function() {
         });
     });
     setTimeout(function() {
-        fetchData();
+        fetchData(pageStart);
     }, 2000);
-    var sta = 0;
-    var limit = 3;
-    function fetchData() {
+
+    function fetchData(pageStart) {
+        console.log(pageLimit);
+        console.log(pageStart);
         $.ajax({
             type: 'POST',
             url: 'fetch.php',
-            dataType: "json", //to parse string into JSON object,
+            dataType: "json",
+            data: {
+                "sort": sort,
+                "sortType": sortType,
+                "offset": offset,
+                "limit": pageLimit,
+                "pageStart": pageStart
+            },
             success: function(data) {
-                console.log();
                 if (data) {
                     $("#table tbody").empty();
                     var txt = "";
+                    count = data[0]['count'];
+                    var pages = Math.ceil(count / pageLimit);
+                    $('#page_navigation').empty();
+                    for (var i = 1; i <= pages; i++) {
+                        $("#page_navigation").append("<a href='#' class='pageNumber' id='" + i + "'>" + i + "</a><span></span>");
+                    }
+                    var data = data[1];
                     len = data.length;
-                    console.log(data.length)
+                    newcount = data.length;
                     var txt = "";
-                    var start = sta;
+                    var start = pageStart;
                     var endpoint = start + limit;
                     if (len > 0) {
-                        for (var i = start; i < data.length; i++) {
-                            if (i < endpoint) {
-                                if (data[i].name && data[i].email && data[i].message && data[i].date) {
-                                    txt += "<tr><td>" + data[i].name + "</td><td>" + data[i].email + "</td><td>" +
-                                        data[i].message + "</td><td>" + data[i].date + "</td></tr>";
-                                }
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].name && data[i].email && data[i].message && data[i].date) {
+                                txt += "<tr><td>" + data[i].name + "</td><td>" + data[i].email + "</td><td>" +
+                                    data[i].message + "</td><td>" + data[i].date + "</td></tr>";
                             }
                         }
                         if (txt != "") {
@@ -77,62 +106,16 @@ $(document).ready(function() {
         });
         return false;
     }
-    $('#nextValue').click(function() {
-        var rowCount = $('#table td').length;
-        console.log(rowCount);
-        if (rowCount < 12) {
-            $("#nextValue").prop("disabled", true);
-        } else {
-            sta = sta + limit;
-            fetchData();
-        }
-    });
-    
-    
-    
     $(document).ready(function() {
-        $('th').each(function(tr) {
-            $(this).click(function() {
-                if ($(this).is('.asc')) {
-                    $(this).removeClass('asc');
-                    $(this).addClass('desc selected');
-                    sortOrder = -1;
-                } else {
-                    $(this).addClass('asc selected');
-                    $(this).removeClass('desc');
-                    sortOrder = 1;
-                }
-                var arrData = $('#table').find('tbody >tr:has(td)').get();
-                console.log(arrData);
-                arrData.sort(function(a, b) {
-                    var val1 = $(a).children('td').eq(tr).text();
-                    console.log(val1);
-                    var val2 = $(b).children('td').eq(tr).text();
-                    if ($.isNumeric(val1) && $.isNumeric(val2))
-                        return sortOrder == 1 ? val1 - val2 : val2 - val1;
-                    else
-                        return (val1 < val2) ? -sortOrder : (val1 > val2) ? sortOrder : 0;
-                    console.log(sortOrder);
-                });
-                $.each(arrData, function(index, row) {
-                    $('tbody').append(row);
-                });
-            });
-
+        $(window).load(function() {
+            fetchData(pageStart);
         });
-    });
-    var pages = Math.ceil(10 / 3);
-    var pageref = function() {
-        for (var i = 1; i <= pages; i++) {
-            $("#page_navigation").append("<a href='#' id='" + i + "'>" + i + "</a><span></span>");
-        }
-    }
-    pageref();
-    var tab = function(start) {}
-    tab("1");
-    $("a").click(function() {
-        var pageno = $(this).attr('id');
-        sta = (pageno - 1) * 3;
-        fetchData();
+        $("body").on('click', '.pageNumber', function(e) {
+            e.preventDefault();
+            var pageStart = $(this).attr('id');
+            pageStart = (pageStart - 1) * 3;
+            fetchData(pageStart);
+        });
+
     });
 });

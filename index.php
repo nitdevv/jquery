@@ -7,23 +7,22 @@
     <script src="file.js"></script>
 </head>
 <body>
-  <div>
   <table id="table" class="sortable">
      <thead id="heading">
      <tr>
-         <th id="Name_1">Name</th>
-         <th>Email</th>
-         <th>Message</th>
-         <th>Date</th>
+         <th class="sort" id="name" >Name</th>
+         <th class="sort" id="email">Email</th>
+         <th class="sort" id="message">Message</th>
+         <th class="sort" id="date">Date</th>
      </tr>
       </thead>
       <tbody class="tbody" id="results">
-
       </tbody>
  </table>
- <div id ="yoo">
- <div id='page_navigation'></div>
-<span id="nextValue">next</span></div>
+ <br><br><br>
+ <div id ="yoob">
+  <div id="page_navigation">
+ </div>
  </div>
     <div class="container">
         <div class="main">
@@ -46,3 +45,4 @@
     </div>
 </body>
 </html>
+
