@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>json Assignment1</title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<body>
+    <div class="div1">
+        <table id="mytable">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var obj = [{
+            First_Name: "Cristiano",
+            Last_Name: "Ronaldo",
+            Date_of_Birth: " 5 February 1985",
+        }, {
+            First_Name: "Sachin",
+            Last_Name: "Tendulkar",
+            Date_of_Birth: "24 April 1973",
+        }, {
+            First_Name: "Cristiano",
+            Last_Name: "Ronaldo",
+            Date_of_Birth: " 5 February 1985",
+        }]
+        var tbl = $("<table/>").attr("id", "mytable");
+        var i = 0;
+        $("#div1").append(tbl);
+        _.times(5, function() {
+            if (i < obj.length) {
+                var tr = "<tr>";
+                var td1 = "<td>" + obj[i]["First_Name"] + "</td>";
+                var td2 = "<td>" + obj[i]["Last_Name"] + "</td>";
+                var td3 = "<td>" + obj[i]["Date_of_Birth"] + "</td></tr>";
+                $("#mytable").append(tr + td1 + td2 + td3);
+                i++;
+            }
+        });
+    </script>
+</body>
+</html>
